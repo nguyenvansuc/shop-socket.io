@@ -1,4 +1,4 @@
-const io = require('socket.io')(process.env.PORT||"https://shop-socket.herokuapp.com/", {
+const io = require('socket.io')(process.env.PORT||5000, {
     cors: {
       origin: 'https://shop-frontend-seven.vercel.app',
     },
