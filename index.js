@@ -1,8 +1,19 @@
-const io = require('socket.io')(process.env.PORT||5000, {
-    cors: {
-      origin: 'https://shop-frontend-seven.vercel.app',
-    },
-  });
+// const io = require('socket.io')(process.env.PORT||5000, {
+//     cors: {
+//       origin: 'https://shop-frontend-seven.vercel.app',
+//     },
+//   });
+var app=require('express')();
+var http=require('http').createServer(app);
+var io=require('socket.io')(http,{
+      cors: {
+        origin: 'https://shop-frontend-seven.vercel.app',
+      },
+    })
+
+app.get('/',(req,res)=>{
+  res.status(200).json('success')
+})
 
   let users = [{ idUser: 'default', socketId: 'default',rules:'default' }];
   const addUser = (idUser,rules, socketId) => {
@@ -53,6 +64,10 @@ const io = require('socket.io')(process.env.PORT||5000, {
       console.log(users,'dis')
     });
   });
+
+  http.listen(process.env.PORT||5000,()=>{
+    console.log('listening in 3000')
+  })
 
 // var socketIO=require('socket.io');
 // let io =socketIO();
