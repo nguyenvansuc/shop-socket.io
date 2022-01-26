@@ -7,7 +7,7 @@ var app=require('express')();
 var http=require('http').createServer(app);
 var io=require('socket.io')(http,{
       cors: {
-        origin: 'https://shop-frontend-seven.vercel.app',
+        origin: ['https://shop-frontend-seven.vercel.app','http://localhost:3000'],
       },
     })
 
