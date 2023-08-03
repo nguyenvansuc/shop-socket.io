@@ -7,7 +7,7 @@ var app=require('express')();
 var http=require('http').createServer(app);
 var io=require('socket.io')(http,{
       cors: {
-        origin: ['https://shop-frontend-seven.vercel.app','http://localhost:3000'],
+        origin: ['http://localhost:3000', 'http://localhost:5050'],
       },
     })
 
@@ -65,7 +65,7 @@ app.get('/',(req,res)=>{
     });
   });
 
-  http.listen(process.env.PORT||5000,()=>{
+  http.listen(3001,()=>{
     console.log('listening in 3000')
   })
 
